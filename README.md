@@ -9,6 +9,7 @@ Stock price prediction is complex due to market volatility and various influenci
 ## Methodology
 
 ### Data Collection
+- Data source from [Kaggle's Stock Market Dataset](https://www.kaggle.com/datasets/jacksoncrow/stock-market-dataset).
 - Historical daily price data for AAPL and AMD was collected using the Python package `yfinance`.
 - Collected columns include the date, open price, close price, and volume.
 
