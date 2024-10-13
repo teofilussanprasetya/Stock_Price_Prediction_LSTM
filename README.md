@@ -1,28 +1,20 @@
 # Stock Price Prediction Using LSTM
 
 ## Executive Summary
-
-This project aims to predict daily stock prices for Apple Inc. (AAPL) and Advanced Micro Devices, Inc. (AMD) using Long Short-Term Memory (LSTM) architecture. Through this approach, the goal is to provide valuable insights for investors in making investment decisions. The analysis compares two LSTM models: a baseline model and a modified model.
+This project aims to predict daily stock prices for Apple Inc. (AAPL) and Advanced Micro Devices, Inc. (AMD) using Long Short-Term Memory (LSTM) architecture. Two LSTM models are developed: a baseline model and a modified model. The goal is to provide valuable insights to help investors make informed investment decisions by comparing the performance of these models.
 
 ## Business Problem
-
-The stock market is highly dynamic and influenced by various factors, making stock price prediction a complex challenge. Investors need accurate methods to forecast stock movements to minimize investment risks and maximize returns. This project focuses on predicting daily stock prices for AAPL and AMD using historical data.
+Stock price prediction is complex due to market volatility and various influencing factors. Accurate forecasting models are needed by investors to reduce risks and increase returns. This project focuses on predicting daily stock prices for AAPL and AMD using historical stock data and LSTM models.
 
 ## Methodology
 
 ### Data Collection
-- Daily historical price data for AAPL and AMD was collected from Yahoo Finance using the Python package `yfinance`, including columns such as date, open price, close price, and volume.
+- Historical daily price data for AAPL and AMD was collected using the Python package `yfinance`.
+- Collected columns include the date, open price, close price, and volume.
 
 ### Data Preprocessing
-- Preprocess the data to structure the date and closing price columns.
-- Implement a sliding window technique with a window size of 5 days for input and a horizon of 1 day for output.
-
-### Model Development
-- **Baseline LSTM Model**: Utilizes 50 units with a ReLU activation function in the LSTM layer and a Perceptron node with one unit in the final layer.
-- **Modified LSTM Model**: Explores various modifications to the architecture and hyperparameters to improve performance.
-
-### Model Evaluation
-- Evaluate both models using performance metrics such as RMSE (Root Mean Square Error), MAE (Mean Absolute Error), and MAPE (Mean Absolute Percentage Error).
+- Only the date and closing price columns were used for prediction.
+- A sliding window technique was applied, using the previous 5 days as input to predict the next day’s price.
 
 ### Data Visualization
 - Visualizing stock price trends is crucial for understanding market behavior. The closing prices for AAPL and AMD were plotted to analyze their trends over time.
@@ -37,31 +29,50 @@ The chart shows the stock price trend of Apple Inc. from 1980 to 2020. Significa
 
 The chart shows the stock price trend of AMD from 1980 to 2020. The stock experienced notable fluctuations. The highest peak occurred in 2000, followed by a decline. Since 2016, AMD’s price has increased consistently. The stock reached over $50 by 2020. This reflects AMD's growing competitiveness in the tech industry.
 
-## Skills
+### Model Development
+- **Baseline LSTM Model**: Uses 50 units in the LSTM layer with a ReLU activation function, followed by a dense layer with one unit for output.
+- **Modified LSTM Model**: Various architectural changes were applied, including adding more layers and experimenting with hyperparameters to improve prediction accuracy.
 
-- Proficient in Python programming and using libraries such as pandas, numpy, and TensorFlow for model development.
-- Data analysis skills, including data exploration and preprocessing.
-- Understanding of LSTM architecture and model optimization techniques.
+### Model Evaluation
+Both models were evaluated using the following performance metrics:
+- **RMSE** (Root Mean Square Error)
+- **MAE** (Mean Absolute Error)
+- **MAPE** (Mean Absolute Percentage Error)
+
+## Skills
+- Proficiency in Python and libraries such as pandas, numpy, and TensorFlow.
+- Experience in time series analysis, LSTM architecture, and data preprocessing.
+- Expertise in model development, optimization, and evaluation.
 
 ## Results
 
-From both LSTM architectures, the baseline model demonstrated superior performance regarding evaluation metrics, including RMSE, MAE, and MAPE, for both AAPL and AMD data. The results indicate that despite the adjustments in the modified model, the simpler baseline model yielded more accurate predictions.
+### Baseline LSTM Model
+The baseline model produced accurate predictions for both AAPL and AMD stock prices, performing well in terms of RMSE, MAE, and MAPE. It’s a simple yet effective architecture for this task.
 
-### Model Metrics Visualization
-#### Time Series Predictions for AAPL
-![AAPL Model Metrics](Image_lstm/ResultAAPL.png)
-![AAPL Time Series Predictions](Image_lstm/ActualvsPredictedAAPL.png)
+#### AAPL Baseline Model Metrics
+![AAPL Baseline Model Metrics](Image_lstm/ResultAAPL.png)
+![AAPL Baseline Time Series Predictions](Image_lstm/ActualvsPredictedAAPL.png)
 
-#### Time Series Predictions for AMD
-![AMD Model Metrics](Image_lstm/ResultOfAMD.png)
-![AMD Time Series Predictions](Image_lstm/ActualvsPredictedAMD.png)
+#### AMD Baseline Model Metrics
+![AMD Baseline Model Metrics](Image_lstm/ResultOfAMD.png)
+![AMD Baseline Time Series Predictions](Image_lstm/ActualvsPredictedAMD.png)
+
+### Modified LSTM Model
+The modified model introduced more layers and different hyperparameters, but did not outperform the baseline model consistently across all metrics.
+
+#### AAPL Modified Model Metrics
+![AAPL Modified Model Metrics](Image_lstm/ResultOfAAPLmodified.png)
+![AAPL Modified Time Series Predictions](Image_lstm/ActualvsPredictedAAPLmodified.png)
+
+#### AMD Modified Model Metrics
+![AMD Modified Model Metrics](Image_lstm/ResultOfAMDmodified.png)
+![AMD Modified Time Series Predictions](Image_lstm/ActualvsPredictedAMDmodified.png)
 
 ## Business Recommendations
-
-Based on the evaluation results, it is recommended to use the baseline LSTM architecture as the primary model for stock price prediction. While architectural modifications may seem appealing, the results show that simplicity in modeling can be more effective. Investors are advised to incorporate this model into their stock analysis strategies.
+The baseline LSTM model is recommended as the primary model for stock price prediction. While the modified model showed some improvements, the simplicity and consistent performance of the baseline model make it more practical for real-world use. Investors should integrate this model into their analysis strategies to make informed decisions.
 
 ## Next Steps
+- **Model Deployment**: Deploy the LSTM model into a stock prediction application for real-time forecasts.
+- **Model Improvement**: Continue exploring alternative architectures or ensemble techniques for potential performance gains.
+- **Continuous Monitoring**: Implement regular performance monitoring to ensure the model adapts to changing market conditions.
 
-- **Model Deployment**: Integrate the LSTM model into a stock price prediction application for easy access by investors.
-- **Model Improvement**: Conduct further experiments with ensemble techniques or other machine learning models for comparison.
-- **Continuous Monitoring**: Implement regular performance monitoring of the model to ensure prediction accuracy remains high as market conditions change.
